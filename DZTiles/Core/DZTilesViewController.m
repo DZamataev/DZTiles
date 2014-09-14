@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.collectionView.draggable = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,6 +157,39 @@
 //- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout {
 //    
 //}
+
+#pragma mark - UICollectionView_Draggable
+//- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+//    
+//}
+//
+//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+//
+//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)toIndexPath {
+//    
+//}
+//
+//- (void)collectionView:(UICollectionView *)collectionView didMoveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)toIndexPath {
+//    
+//}
+
+#pragma mark -
+- (BOOL)collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)collectionView:(LSCollectionViewHelper *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    DZTile *tile = [self tileAtIndexPath:fromIndexPath];
+    DZTilesSection *fromSection = self.sections[fromIndexPath.section];
+    [fromSection.tiles removeObjectAtIndex:fromIndexPath.row];
+    DZTilesSection *toSection = self.sections[toIndexPath.section];
+    [toSection.tiles insertObject:tile atIndex:toIndexPath.row];
+}
+
 
 #pragma mark - RFQuiltLayoutDelegate
 

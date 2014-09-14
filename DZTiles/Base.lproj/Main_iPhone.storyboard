@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewLayout key="collectionViewLayout" id="3p6-YO-5W8" customClass="RFQuiltLayout">
+                        <collectionViewLayout key="collectionViewLayout" id="3p6-YO-5W8" customClass="DSQuiltLayoutDraggable">
                             <connections>
                                 <outlet property="delegate" destination="e1H-cy-26p" id="d0a-os-Zts"/>
                             </connections>

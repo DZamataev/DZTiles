@@ -25,17 +25,17 @@
     }
     
     NSArray *content = @[
-  @{@"title" : @"Pizza", @"image":@"pizza", @"color":@"#ff9500", @"sizeWidth":@"2", @"sizeHeight":@"2",
+  @{@"title" : @"Pizza", @"image":@"pizza", @"color":@"#ff9500", @"sizeWidth":@"2", @"sizeHeight":@"1",
     @"items" : @[ @{@"name":@"Pepperoni", @"image":@"pizza-pepperoni", @"color":@"#ffd700", @"sizeWidth":@"1", @"sizeHeight":@"1"},
                   @{@"name":@"Mexicana", @"image":@"pizza-mexicana", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"1"},
                   @{@"name":@"Vegetarian", @"image":@"pizza-vegeterian", @"color":@"#6dc066", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
     },
   @{@"title" : @"Iceream", @"image":@"icecream", @"color":@"#f5f5f5", @"sizeWidth":@"2", @"sizeHeight":@"1",
-    @"items" : @[ @{@"name":@"Vanilla", @"image":@"icecream-vanilla", @"color":@"#f5f5dc", @"sizeWidth":@"1", @"sizeHeight":@"2"},
+    @"items" : @[ @{@"name":@"Vanilla", @"image":@"icecream-vanilla", @"color":@"#f5f5dc", @"sizeWidth":@"1", @"sizeHeight":@"1"},
                   @{@"name":@"Banana", @"image":@"icecream-banana", @"color":@"#ccff00", @"sizeWidth":@"1", @"sizeHeight":@"1"},
                   @{@"name":@"Strawberry", @"image":@"icecream-strawberry", @"color":@"#ffefd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
     },
-  @{@"title" : @"Coctails", @"image":@"coctails", @"color":@"#f5f5f5", @"sizeWidth":@"3", @"sizeHeight":@"1",
+  @{@"title" : @"Coctails", @"image":@"coctails", @"color":@"#f5f5f5", @"sizeWidth":@"2", @"sizeHeight":@"1",
     @"items" : @[ @{@"name":@"Margarita", @"image":@"coctail-margarita", @"color":@"#fa8072", @"sizeWidth":@"1", @"sizeHeight":@"1"},
                   @{@"name":@"Long Island", @"image":@"coctail-longisland", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"2"},
                   @{@"name":@"Cuba Libre", @"image":@"coctail-cubalibre", @"color":@"#b6fcd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]

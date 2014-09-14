@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RFQuiltLayout.h"
+#import "LSCollectionViewHelper.h"
+#import "UICollectionView+Draggable.h"
 
 @class DZTilesSection;
 @class DZTile;
 
-@interface DZTilesViewController : UICollectionViewController <RFQuiltLayoutDelegate>
+@interface DZTilesViewController : UICollectionViewController <RFQuiltLayoutDelegate, UICollectionViewDataSource_Draggable>
 @property (nonatomic, strong) NSMutableArray *sections; // array of DZTilesSection objects
 @property (nonatomic, assign) IBOutlet RFQuiltLayout *layout;
 - (void)insertTilesSections:(NSMutableArray*)newSections animated:(BOOL)animated;
