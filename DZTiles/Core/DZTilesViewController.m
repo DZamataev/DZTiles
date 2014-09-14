@@ -11,7 +11,8 @@
 #import "DZTile.h"
 
 @interface DZTilesViewController ()
-
+@property NSMutableArray *displayedTiles;
+@property NSMutableArray *displayedCells;
 @end
 
 @implementation DZTilesViewController
@@ -30,12 +31,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.collectionView.draggable = YES;
+    self.displayedCells = [NSMutableArray new];
+    self.displayedTiles = [NSMutableArray new];
+//    [self performSelector:@selector(log) withObject:nil afterDelay:1.0];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)log {
+    NSLog(@"displayed cells: %i", self.displayedCells.count);
+    [self performSelector:@selector(log) withObject:nil afterDelay:1.0f];
 }
 
 /*
@@ -48,6 +57,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Actions
+
+- (void)scheduleRotationForTile:(DZTile*)tileToRotate afterSeconds:(CGFloat)time {
+    assert(tileToRotate);
+    tileToRotate.rotationTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(fireRotationInTile:) userInfo:tileToRotate repeats:NO];
+}
+
+- (void)fireRotationInTile:(NSTimer*)timer {
+    if ([timer.userInfo isKindOfClass:[DZTile class]]) {
+        DZTile *tile = timer.userInfo;
+        BOOL isDisplayed = NO;
+        UICollectionViewCell *cell = nil;
+        NSInteger tileIndex = [self.displayedTiles indexOfObject:tile];
+        if (tileIndex != NSNotFound) {
+            isDisplayed = YES;
+            cell = [self.displayedCells objectAtIndex:tileIndex];
+        }
+        tile.onRotation(tile, isDisplayed, cell);
+        [tile.rotationTimer invalidate];
+        tile.rotationTimer = nil;
+    }
+}
+#pragma mark - Helpers
 
 - (DZTilesSection*)sectionAtIndex:(NSInteger)sectionIndex {
     return (DZTilesSection*)self.sections[sectionIndex];
@@ -75,6 +108,9 @@
     DZTile *tile = [self tileAtIndexPath:indexPath];
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tile.cellReusableIdentifier forIndexPath:indexPath];
+    
+    [self.displayedCells addObject:cell];
+    [self.displayedTiles addObject:tile];
     
     tile.onViewUpdate(tile, cell);
     
@@ -132,7 +168,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self.displayedCells removeObject:cell];
+    [self.displayedTiles removeObject:[self tileAtIndexPath:indexPath]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {

@@ -39,6 +39,36 @@
     @"items" : @[ @{@"name":@"Margarita", @"image":@"coctail-margarita", @"color":@"#fa8072", @"sizeWidth":@"1", @"sizeHeight":@"1"},
                   @{@"name":@"Long Island", @"image":@"coctail-longisland", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"2"},
                   @{@"name":@"Cuba Libre", @"image":@"coctail-cubalibre", @"color":@"#b6fcd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
+    },
+  @{@"title" : @"Pizza", @"image":@"pizza", @"color":@"#ff9500", @"sizeWidth":@"2", @"sizeHeight":@"1",
+    @"items" : @[ @{@"name":@"Pepperoni", @"image":@"pizza-pepperoni", @"color":@"#ffd700", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Mexicana", @"image":@"pizza-mexicana", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Vegetarian", @"image":@"pizza-vegeterian", @"color":@"#6dc066", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
+    },
+  @{@"title" : @"Iceream", @"image":@"icecream", @"color":@"#f5f5f5", @"sizeWidth":@"2", @"sizeHeight":@"1",
+    @"items" : @[ @{@"name":@"Vanilla", @"image":@"icecream-vanilla", @"color":@"#f5f5dc", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Banana", @"image":@"icecream-banana", @"color":@"#ccff00", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Strawberry", @"image":@"icecream-strawberry", @"color":@"#ffefd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
+    },
+  @{@"title" : @"Coctails", @"image":@"coctails", @"color":@"#f5f5f5", @"sizeWidth":@"2", @"sizeHeight":@"1",
+    @"items" : @[ @{@"name":@"Margarita", @"image":@"coctail-margarita", @"color":@"#fa8072", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Long Island", @"image":@"coctail-longisland", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"2"},
+                  @{@"name":@"Cuba Libre", @"image":@"coctail-cubalibre", @"color":@"#b6fcd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
+    },
+  @{@"title" : @"Pizza", @"image":@"pizza", @"color":@"#ff9500", @"sizeWidth":@"2", @"sizeHeight":@"1",
+    @"items" : @[ @{@"name":@"Pepperoni", @"image":@"pizza-pepperoni", @"color":@"#ffd700", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Mexicana", @"image":@"pizza-mexicana", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Vegetarian", @"image":@"pizza-vegeterian", @"color":@"#6dc066", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
+    },
+  @{@"title" : @"Iceream", @"image":@"icecream", @"color":@"#f5f5f5", @"sizeWidth":@"2", @"sizeHeight":@"1",
+    @"items" : @[ @{@"name":@"Vanilla", @"image":@"icecream-vanilla", @"color":@"#f5f5dc", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Banana", @"image":@"icecream-banana", @"color":@"#ccff00", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Strawberry", @"image":@"icecream-strawberry", @"color":@"#ffefd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
+    },
+  @{@"title" : @"Coctails", @"image":@"coctails", @"color":@"#f5f5f5", @"sizeWidth":@"2", @"sizeHeight":@"1",
+    @"items" : @[ @{@"name":@"Margarita", @"image":@"coctail-margarita", @"color":@"#fa8072", @"sizeWidth":@"1", @"sizeHeight":@"1"},
+                  @{@"name":@"Long Island", @"image":@"coctail-longisland", @"color":@"#ffa500", @"sizeWidth":@"1", @"sizeHeight":@"2"},
+                  @{@"name":@"Cuba Libre", @"image":@"coctail-cubalibre", @"color":@"#b6fcd5", @"sizeWidth":@"1", @"sizeHeight":@"1"} ]
     }
   ];
     
@@ -81,6 +111,23 @@
             itemTile.cellReusableIdentifier = @"SmallTileCell";
             itemTile.userData = item;
             itemTile.blockSizeMultiplier = CGSizeMake([item[@"sizeWidth"] floatValue], [item[@"sizeHeight"] floatValue]);
+            [itemTile setOnViewUpdate:^(DZTile *tile, UICollectionViewCell *cell) {
+                if ([cell isKindOfClass:[DZTileCollectionViewCell class]]) {
+                    DZTileCollectionViewCell *tileCell = (DZTileCollectionViewCell*)cell;
+                    tileCell.frontTitleLabel.text = tile.title;
+                    tileCell.frontContainerView.backgroundColor = tile.color;
+                    tileCell.frontImageView.image = tile.image;
+                    if (!tile.rotationTimer)
+                        [self.tilesVC scheduleRotationForTile:tile afterSeconds:arc4random() % 10 + 3];
+                }
+            }];
+            
+            [itemTile setOnRotation:^(DZTile *tile, bool isDisplayed, UICollectionViewCell *cell) {
+                if (isDisplayed) {
+                    tile.color = [[self class] randomColor];
+                    tile.onViewUpdate(tile, cell);
+                }
+            }];
             
             [section.tiles addObject:itemTile];
         }
@@ -102,5 +149,12 @@
     [scanner setScanLocation:1]; // bypass '#' character
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
++ (UIColor*) randomColor {
+    int r = arc4random() % 255;
+    int g = arc4random() % 255;
+    int b = arc4random() % 255;
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
 }
 @end
