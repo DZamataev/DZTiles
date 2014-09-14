@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8421551419C59C5500231A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421551319C59C5500231A02 /* Foundation.framework */; };
+		8421551619C59C5500231A02 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421551519C59C5500231A02 /* CoreGraphics.framework */; };
+		8421551819C59C5500231A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421551719C59C5500231A02 /* UIKit.framework */; };
+		8421551E19C59C5500231A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8421551C19C59C5500231A02 /* InfoPlist.strings */; };
+		8421552019C59C5500231A02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421551F19C59C5500231A02 /* main.m */; };
+		8421552419C59C5500231A02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421552319C59C5500231A02 /* AppDelegate.m */; };
+		8421552719C59C5500231A02 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421552519C59C5500231A02 /* Main_iPhone.storyboard */; };
+		8421552A19C59C5500231A02 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421552819C59C5500231A02 /* Main_iPad.storyboard */; };
+		8421552D19C59C5500231A02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421552C19C59C5500231A02 /* ViewController.m */; };
+		8421552F19C59C5500231A02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8421552E19C59C5500231A02 /* Images.xcassets */; };
+		8421553619C59C5600231A02 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421553519C59C5600231A02 /* XCTest.framework */; };
+		8421553719C59C5600231A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421551319C59C5500231A02 /* Foundation.framework */; };
+		8421553819C59C5600231A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421551719C59C5500231A02 /* UIKit.framework */; };
+		8421554019C59C5600231A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8421553E19C59C5600231A02 /* InfoPlist.strings */; };
+		8421554219C59C5600231A02 /* DZTilesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421554119C59C5600231A02 /* DZTilesTests.m */; };
+		8421554D19C59D8E00231A02 /* DZTilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421554C19C59D8E00231A02 /* DZTilesViewController.m */; };
+		8421555119C5A0AE00231A02 /* DZTilesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421555019C5A0AE00231A02 /* DZTilesSection.m */; };
+		8421555419C5A0D200231A02 /* DZTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421555319C5A0D200231A02 /* DZTile.m */; };
+		8421555A19C5A2C500231A02 /* DZTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421555919C5A2C500231A02 /* DZTileCollectionViewCell.m */; };
+		8484DE6D19C5D8A4006F7137 /* RFQuiltLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DE6C19C5D8A4006F7137 /* RFQuiltLayout.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8421553919C59C5600231A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8421550819C59C5500231A02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8421550F19C59C5500231A02;
+			remoteInfo = DZTiles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8421551019C59C5500231A02 /* DZTiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZTiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8421551319C59C5500231A02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8421551519C59C5500231A02 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8421551719C59C5500231A02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8421551B19C59C5500231A02 /* DZTiles-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DZTiles-Info.plist"; sourceTree = "<group>"; };
+		8421551D19C59C5500231A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8421551F19C59C5500231A02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8421552119C59C5500231A02 /* DZTiles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DZTiles-Prefix.pch"; sourceTree = "<group>"; };
+		8421552219C59C5500231A02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8421552319C59C5500231A02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8421552619C59C5500231A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		8421552919C59C5500231A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8421552B19C59C5500231A02 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8421552C19C59C5500231A02 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8421552E19C59C5500231A02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8421553419C59C5600231A02 /* DZTilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DZTilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8421553519C59C5600231A02 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8421553D19C59C5600231A02 /* DZTilesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DZTilesTests-Info.plist"; sourceTree = "<group>"; };
+		8421553F19C59C5600231A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8421554119C59C5600231A02 /* DZTilesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZTilesTests.m; sourceTree = "<group>"; };
+		8421554B19C59D8D00231A02 /* DZTilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZTilesViewController.h; path = DZTiles/Core/DZTilesViewController.h; sourceTree = "<group>"; };
+		8421554C19C59D8E00231A02 /* DZTilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZTilesViewController.m; path = DZTiles/Core/DZTilesViewController.m; sourceTree = "<group>"; };
+		8421554F19C5A0AE00231A02 /* DZTilesSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZTilesSection.h; path = DZTiles/Core/DZTilesSection.h; sourceTree = "<group>"; };
+		8421555019C5A0AE00231A02 /* DZTilesSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZTilesSection.m; path = DZTiles/Core/DZTilesSection.m; sourceTree = "<group>"; };
+		8421555219C5A0D200231A02 /* DZTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZTile.h; path = DZTiles/DZTile.h; sourceTree = "<group>"; };
+		8421555319C5A0D200231A02 /* DZTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZTile.m; path = DZTiles/DZTile.m; sourceTree = "<group>"; };
+		8421555519C5A14E00231A02 /* DZTiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZTiles.h; path = DZTiles/Core/DZTiles.h; sourceTree = "<group>"; };
+		8421555819C5A2C500231A02 /* DZTileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZTileCollectionViewCell.h; path = DZTiles/Core/DZTileCollectionViewCell.h; sourceTree = "<group>"; };
+		8421555919C5A2C500231A02 /* DZTileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZTileCollectionViewCell.m; path = DZTiles/Core/DZTileCollectionViewCell.m; sourceTree = "<group>"; };
+		8484DE6B19C5D8A4006F7137 /* RFQuiltLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFQuiltLayout.h; sourceTree = "<group>"; };
+		8484DE6C19C5D8A4006F7137 /* RFQuiltLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFQuiltLayout.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8421550D19C59C5500231A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421551619C59C5500231A02 /* CoreGraphics.framework in Frameworks */,
+				8421551819C59C5500231A02 /* UIKit.framework in Frameworks */,
+				8421551419C59C5500231A02 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421553119C59C5600231A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421553619C59C5600231A02 /* XCTest.framework in Frameworks */,
+				8421553819C59C5600231A02 /* UIKit.framework in Frameworks */,
+				8421553719C59C5600231A02 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8421550719C59C5500231A02 = {
+			isa = PBXGroup;
+			children = (
+				8484DE6A19C5D8A4006F7137 /* RFQuiltLayout */,
+				8421554E19C59D9300231A02 /* Core */,
+				8421551919C59C5500231A02 /* Demo */,
+				8421553B19C59C5600231A02 /* DZTilesTests */,
+				8421551219C59C5500231A02 /* Frameworks */,
+				8421551119C59C5500231A02 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8421551119C59C5500231A02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8421551019C59C5500231A02 /* DZTiles.app */,
+				8421553419C59C5600231A02 /* DZTilesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8421551219C59C5500231A02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8421551319C59C5500231A02 /* Foundation.framework */,
+				8421551519C59C5500231A02 /* CoreGraphics.framework */,
+				8421551719C59C5500231A02 /* UIKit.framework */,
+				8421553519C59C5600231A02 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8421551919C59C5500231A02 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				8421552219C59C5500231A02 /* AppDelegate.h */,
+				8421552319C59C5500231A02 /* AppDelegate.m */,
+				8421552519C59C5500231A02 /* Main_iPhone.storyboard */,
+				8421552819C59C5500231A02 /* Main_iPad.storyboard */,
+				8421552B19C59C5500231A02 /* ViewController.h */,
+				8421552C19C59C5500231A02 /* ViewController.m */,
+				8421552E19C59C5500231A02 /* Images.xcassets */,
+				8421551A19C59C5500231A02 /* Supporting Files */,
+			);
+			name = Demo;
+			path = DZTiles;
+			sourceTree = "<group>";
+		};
+		8421551A19C59C5500231A02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8421551B19C59C5500231A02 /* DZTiles-Info.plist */,
+				8421551C19C59C5500231A02 /* InfoPlist.strings */,
+				8421551F19C59C5500231A02 /* main.m */,
+				8421552119C59C5500231A02 /* DZTiles-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8421553B19C59C5600231A02 /* DZTilesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8421554119C59C5600231A02 /* DZTilesTests.m */,
+				8421553C19C59C5600231A02 /* Supporting Files */,
+			);
+			path = DZTilesTests;
+			sourceTree = "<group>";
+		};
+		8421553C19C59C5600231A02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8421553D19C59C5600231A02 /* DZTilesTests-Info.plist */,
+				8421553E19C59C5600231A02 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8421554E19C59D9300231A02 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8421555519C5A14E00231A02 /* DZTiles.h */,
+				8421554B19C59D8D00231A02 /* DZTilesViewController.h */,
+				8421554C19C59D8E00231A02 /* DZTilesViewController.m */,
+				8421554F19C5A0AE00231A02 /* DZTilesSection.h */,
+				8421555019C5A0AE00231A02 /* DZTilesSection.m */,
+				8421555219C5A0D200231A02 /* DZTile.h */,
+				8421555319C5A0D200231A02 /* DZTile.m */,
+				8421555819C5A2C500231A02 /* DZTileCollectionViewCell.h */,
+				8421555919C5A2C500231A02 /* DZTileCollectionViewCell.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		8484DE6A19C5D8A4006F7137 /* RFQuiltLayout */ = {
+			isa = PBXGroup;
+			children = (
+				8484DE6B19C5D8A4006F7137 /* RFQuiltLayout.h */,
+				8484DE6C19C5D8A4006F7137 /* RFQuiltLayout.m */,
+			);
+			path = RFQuiltLayout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8421550F19C59C5500231A02 /* DZTiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8421554519C59C5600231A02 /* Build configuration list for PBXNativeTarget "DZTiles" */;
+			buildPhases = (
+				8421550C19C59C5500231A02 /* Sources */,
+				8421550D19C59C5500231A02 /* Frameworks */,
+				8421550E19C59C5500231A02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DZTiles;
+			productName = DZTiles;
+			productReference = 8421551019C59C5500231A02 /* DZTiles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8421553319C59C5600231A02 /* DZTilesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8421554819C59C5600231A02 /* Build configuration list for PBXNativeTarget "DZTilesTests" */;
+			buildPhases = (
+				8421553019C59C5600231A02 /* Sources */,
+				8421553119C59C5600231A02 /* Frameworks */,
+				8421553219C59C5600231A02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8421553A19C59C5600231A02 /* PBXTargetDependency */,
+			);
+			name = DZTilesTests;
+			productName = DZTilesTests;
+			productReference = 8421553419C59C5600231A02 /* DZTilesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8421550819C59C5500231A02 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = dzamataev;
+				TargetAttributes = {
+					8421553319C59C5600231A02 = {
+						TestTargetID = 8421550F19C59C5500231A02;
+					};
+				};
+			};
+			buildConfigurationList = 8421550B19C59C5500231A02 /* Build configuration list for PBXProject "DZTiles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8421550719C59C5500231A02;
+			productRefGroup = 8421551119C59C5500231A02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8421550F19C59C5500231A02 /* DZTiles */,
+				8421553319C59C5600231A02 /* DZTilesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8421550E19C59C5500231A02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421552A19C59C5500231A02 /* Main_iPad.storyboard in Resources */,
+				8421552F19C59C5500231A02 /* Images.xcassets in Resources */,
+				8421552719C59C5500231A02 /* Main_iPhone.storyboard in Resources */,
+				8421551E19C59C5500231A02 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421553219C59C5600231A02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421554019C59C5600231A02 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8421550C19C59C5500231A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421554D19C59D8E00231A02 /* DZTilesViewController.m in Sources */,
+				8421552D19C59C5500231A02 /* ViewController.m in Sources */,
+				8421552419C59C5500231A02 /* AppDelegate.m in Sources */,
+				8421555419C5A0D200231A02 /* DZTile.m in Sources */,
+				8421555A19C5A2C500231A02 /* DZTileCollectionViewCell.m in Sources */,
+				8421552019C59C5500231A02 /* main.m in Sources */,
+				8421555119C5A0AE00231A02 /* DZTilesSection.m in Sources */,
+				8484DE6D19C5D8A4006F7137 /* RFQuiltLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8421553019C59C5600231A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8421554219C59C5600231A02 /* DZTilesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8421553A19C59C5600231A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8421550F19C59C5500231A02 /* DZTiles */;
+			targetProxy = 8421553919C59C5600231A02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8421551C19C59C5500231A02 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8421551D19C59C5500231A02 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8421552519C59C5500231A02 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8421552619C59C5500231A02 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8421552819C59C5500231A02 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8421552919C59C5500231A02 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		8421553E19C59C5600231A02 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8421553F19C59C5600231A02 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8421554319C59C5600231A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8421554419C59C5600231A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8421554619C59C5600231A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DZTiles/DZTiles-Prefix.pch";
+				INFOPLIST_FILE = "DZTiles/DZTiles-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8421554719C59C5600231A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DZTiles/DZTiles-Prefix.pch";
+				INFOPLIST_FILE = "DZTiles/DZTiles-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8421554919C59C5600231A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DZTiles.app/DZTiles";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DZTiles/DZTiles-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DZTilesTests/DZTilesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8421554A19C59C5600231A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DZTiles.app/DZTiles";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DZTiles/DZTiles-Prefix.pch";
+				INFOPLIST_FILE = "DZTilesTests/DZTilesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8421550B19C59C5500231A02 /* Build configuration list for PBXProject "DZTiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421554319C59C5600231A02 /* Debug */,
+				8421554419C59C5600231A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8421554519C59C5600231A02 /* Build configuration list for PBXNativeTarget "DZTiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421554619C59C5600231A02 /* Debug */,
+				8421554719C59C5600231A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8421554819C59C5600231A02 /* Build configuration list for PBXNativeTarget "DZTilesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8421554919C59C5600231A02 /* Debug */,
+				8421554A19C59C5600231A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8421550819C59C5500231A02 /* Project object */;
+}
