@@ -24,7 +24,6 @@
 		925EB9CA19C7152F000B6D3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9BB19C7152F000B6D3A /* AppDelegate.m */; };
 		925EB9CB19C7152F000B6D3A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925EB9BC19C7152F000B6D3A /* Main_iPad.storyboard */; };
 		925EB9CC19C7152F000B6D3A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925EB9BE19C7152F000B6D3A /* Main_iPhone.storyboard */; };
-		925EB9CD19C7152F000B6D3A /* DZTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9C119C7152F000B6D3A /* DZTile.m */; };
 		925EB9CF19C7152F000B6D3A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 925EB9C419C7152F000B6D3A /* InfoPlist.strings */; };
 		925EB9D019C7152F000B6D3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925EB9C619C7152F000B6D3A /* Images.xcassets */; };
 		925EB9D119C7152F000B6D3A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9C719C7152F000B6D3A /* main.m */; };
@@ -33,6 +32,7 @@
 		925EB9DE19C71570000B6D3A /* DZTilesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9D819C71570000B6D3A /* DZTilesSection.m */; };
 		925EB9DF19C71570000B6D3A /* DZTilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9DA19C71570000B6D3A /* DZTilesViewController.m */; };
 		925EB9E019C71570000B6D3A /* DZTileTransformationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9DC19C71570000B6D3A /* DZTileTransformationHelper.m */; };
+		925EB9E319C71805000B6D3A /* DZTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9E219C71805000B6D3A /* DZTile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,6 @@
 		925EB9BB19C7152F000B6D3A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		925EB9BD19C7152F000B6D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		925EB9BF19C7152F000B6D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		925EB9C019C7152F000B6D3A /* DZTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTile.h; sourceTree = "<group>"; };
-		925EB9C119C7152F000B6D3A /* DZTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTile.m; sourceTree = "<group>"; };
 		925EB9C219C7152F000B6D3A /* DZTiles-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DZTiles-Info.plist"; sourceTree = "<group>"; };
 		925EB9C319C7152F000B6D3A /* DZTiles-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DZTiles-Prefix.pch"; sourceTree = "<group>"; };
 		925EB9C519C7152F000B6D3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -91,6 +89,8 @@
 		925EB9DA19C71570000B6D3A /* DZTilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTilesViewController.m; sourceTree = "<group>"; };
 		925EB9DB19C71570000B6D3A /* DZTileTransformationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTileTransformationHelper.h; sourceTree = "<group>"; };
 		925EB9DC19C71570000B6D3A /* DZTileTransformationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTileTransformationHelper.m; sourceTree = "<group>"; };
+		925EB9E119C71805000B6D3A /* DZTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTile.h; sourceTree = "<group>"; };
+		925EB9E219C71805000B6D3A /* DZTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +219,6 @@
 				925EB9BB19C7152F000B6D3A /* AppDelegate.m */,
 				925EB9BC19C7152F000B6D3A /* Main_iPad.storyboard */,
 				925EB9BE19C7152F000B6D3A /* Main_iPhone.storyboard */,
-				925EB9C019C7152F000B6D3A /* DZTile.h */,
-				925EB9C119C7152F000B6D3A /* DZTile.m */,
 				925EB9C219C7152F000B6D3A /* DZTiles-Info.plist */,
 				925EB9C319C7152F000B6D3A /* DZTiles-Prefix.pch */,
 				925EB9C419C7152F000B6D3A /* InfoPlist.strings */,
@@ -235,13 +233,15 @@
 		925EB9D319C71570000B6D3A /* DZTiles */ = {
 			isa = PBXGroup;
 			children = (
-				925EB9D419C71570000B6D3A /* DZTileCollectionViewCell.h */,
-				925EB9D519C71570000B6D3A /* DZTileCollectionViewCell.m */,
 				925EB9D619C71570000B6D3A /* DZTiles.h */,
-				925EB9D719C71570000B6D3A /* DZTilesSection.h */,
-				925EB9D819C71570000B6D3A /* DZTilesSection.m */,
 				925EB9D919C71570000B6D3A /* DZTilesViewController.h */,
 				925EB9DA19C71570000B6D3A /* DZTilesViewController.m */,
+				925EB9D719C71570000B6D3A /* DZTilesSection.h */,
+				925EB9D819C71570000B6D3A /* DZTilesSection.m */,
+				925EB9E119C71805000B6D3A /* DZTile.h */,
+				925EB9E219C71805000B6D3A /* DZTile.m */,
+				925EB9D419C71570000B6D3A /* DZTileCollectionViewCell.h */,
+				925EB9D519C71570000B6D3A /* DZTileCollectionViewCell.m */,
 				925EB9DB19C71570000B6D3A /* DZTileTransformationHelper.h */,
 				925EB9DC19C71570000B6D3A /* DZTileTransformationHelper.m */,
 			);
@@ -353,7 +353,7 @@
 				925EB9DD19C71570000B6D3A /* DZTileCollectionViewCell.m in Sources */,
 				925EB9DF19C71570000B6D3A /* DZTilesViewController.m in Sources */,
 				8484DE8119C5F89E006F7137 /* DSQuiltLayoutDraggable.m in Sources */,
-				925EB9CD19C7152F000B6D3A /* DZTile.m in Sources */,
+				925EB9E319C71805000B6D3A /* DZTile.m in Sources */,
 				8484DE7E19C5F890006F7137 /* UICollectionView+Draggable.m in Sources */,
 				925EB9DE19C71570000B6D3A /* DZTilesSection.m in Sources */,
 				8484DE7B19C5F890006F7137 /* LSCollectionViewHelper.m in Sources */,
