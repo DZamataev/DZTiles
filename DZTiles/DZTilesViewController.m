@@ -45,7 +45,7 @@
 }
 
 - (void)log {
-    NSLog(@"displayed cells: %i", self.displayedCells.count);
+    NSLog(@"displayed cells: %ui", self.displayedCells.count);
     [self performSelector:@selector(log) withObject:nil afterDelay:1.0f];
 }
 
