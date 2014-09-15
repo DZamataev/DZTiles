@@ -114,19 +114,30 @@
             [itemTile setOnViewUpdate:^(DZTile *tile, UICollectionViewCell *cell) {
                 if ([cell isKindOfClass:[DZTileCollectionViewCell class]]) {
                     DZTileCollectionViewCell *tileCell = (DZTileCollectionViewCell*)cell;
-                    tileCell.frontTitleLabel.text = tile.title;
+                    tileCell.frontTitleLabel.text = tileCell.backTitleLabel.text = tile.title;
                     tileCell.frontContainerView.backgroundColor = tile.color;
                     tileCell.frontImageView.image = tile.image;
-                    if (!tile.rotationTimer)
-                        [self.tilesVC scheduleRotationForTile:tile afterSeconds:arc4random() % 10 + 3];
+                    tileCell.backImageView.image = [UIImage imageNamed:@"price-mark"];
+                    tileCell.backContainerView.backgroundColor = [UIColor whiteColor];
+                    if (!tile.rotationTimer) {
+                        [self.tilesVC scheduleRotationForTile:tile afterSeconds:arc4random() % 13 + 5];
+                    }
+                    if (!tile.isFacingBackwards) {
+                        tileCell.frontContainerView.hidden = NO;
+                        tileCell.backContainerView.hidden = YES;
+                    }
+                    else {
+                        tileCell.frontContainerView.hidden = YES;
+                        tileCell.backContainerView.hidden = NO;
+                    }
                 }
             }];
             
-            [itemTile setOnRotation:^(DZTile *tile, bool isDisplayed, UICollectionViewCell *cell) {
-                if (isDisplayed) {
-                    tile.color = [[self class] randomColor];
-                    tile.onViewUpdate(tile, cell);
+            [itemTile setOnRotation:^(DZTile *tile, bool isDisplayed, UICollectionViewCell *cell, NSNumber **shouldPerformRotationAnimation) {
+                if (!isDisplayed) {
+                    *shouldPerformRotationAnimation = @(NO);
                 }
+                [self.tilesVC scheduleRotationForTile:tile afterSeconds:arc4random() % 10 + 5];
             }];
             
             [section.tiles addObject:itemTile];

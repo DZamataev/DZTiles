@@ -19,9 +19,9 @@
         [self setOnViewUpdate:^(DZTile *tile, UICollectionViewCell *cell) {
             if ([cell isKindOfClass:[DZTileCollectionViewCell class]]) {
                 DZTileCollectionViewCell *tileCell = (DZTileCollectionViewCell*)cell;
-                tileCell.frontTitleLabel.text = tile.title;
-                tileCell.frontContainerView.backgroundColor = tile.color;
-                tileCell.frontImageView.image = tile.image;
+                tileCell.frontTitleLabel.text = tileCell.backTitleLabel.text = tile.title;
+                tileCell.frontContainerView.backgroundColor = tileCell.backContainerView.backgroundColor = tile.color;
+                tileCell.frontImageView.image = tileCell.backImageView.image = tile.image;
             }
         }];
     }

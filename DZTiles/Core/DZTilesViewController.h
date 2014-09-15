@@ -13,6 +13,8 @@
 
 @class DZTilesSection;
 @class DZTile;
+@class DZTileCollectionViewCell;
+@class DZTileTransformationHelper;
 
 @interface DZTilesViewController : UICollectionViewController <RFQuiltLayoutDelegate, UICollectionViewDataSource_Draggable>
 @property (nonatomic, strong) NSMutableArray *sections; // array of DZTilesSection objects

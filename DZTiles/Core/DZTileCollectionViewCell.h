@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface DZTileCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) IBOutlet UIView *frontContainerView;
 @property (nonatomic, strong) IBOutlet UILabel *frontTitleLabel;

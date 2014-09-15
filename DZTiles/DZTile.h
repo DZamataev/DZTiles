@@ -25,5 +25,7 @@
 
 @property (nonatomic, strong) NSTimer *rotationTimer;
 
-@property (nonatomic, copy) void (^onRotation)(DZTile *tile, bool isDisplayed, UICollectionViewCell *cell);
+@property (nonatomic, copy) void (^onRotation)(DZTile *tile, bool isDisplayed, UICollectionViewCell *cell, NSNumber **shouldPerformRotationAnimation);
+
+@property (nonatomic, assign) BOOL isFacingBackwards;
 @end

@@ -9,6 +9,8 @@
 #import "DZTilesViewController.h"
 #import "DZTilesSection.h"
 #import "DZTile.h"
+#import "DZTileTransformationHelper.h"
+#import "DZTileCollectionViewCell.h"
 
 @interface DZTilesViewController ()
 @property NSMutableArray *displayedTiles;
@@ -62,12 +64,20 @@
 
 - (void)scheduleRotationForTile:(DZTile*)tileToRotate afterSeconds:(CGFloat)time {
     assert(tileToRotate);
-    tileToRotate.rotationTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(fireRotationInTile:) userInfo:tileToRotate repeats:NO];
+    tileToRotate.rotationTimer = [NSTimer scheduledTimerWithTimeInterval:time
+                                                                  target:self
+                                                                selector:@selector(fireRotationInTile:)
+                                                                userInfo:tileToRotate
+                                                                 repeats:NO];
 }
 
 - (void)fireRotationInTile:(NSTimer*)timer {
     if ([timer.userInfo isKindOfClass:[DZTile class]]) {
         DZTile *tile = timer.userInfo;
+        
+        [tile.rotationTimer invalidate];
+        tile.rotationTimer = nil;
+        
         BOOL isDisplayed = NO;
         UICollectionViewCell *cell = nil;
         NSInteger tileIndex = [self.displayedTiles indexOfObject:tile];
@@ -75,9 +85,28 @@
             isDisplayed = YES;
             cell = [self.displayedCells objectAtIndex:tileIndex];
         }
-        tile.onRotation(tile, isDisplayed, cell);
-        [tile.rotationTimer invalidate];
-        tile.rotationTimer = nil;
+        
+        NSNumber *shouldPerformRotationAnimation = @(YES);
+        if (tile.onRotation) {
+            tile.onRotation(tile, isDisplayed, cell, &shouldPerformRotationAnimation);
+        }
+        
+        if (shouldPerformRotationAnimation.boolValue == YES) {
+            if ([cell isKindOfClass:[DZTileCollectionViewCell class]]) {
+                DZTileCollectionViewCell *tileCell = (DZTileCollectionViewCell*)cell;
+                
+                BOOL oppositeFacing = !tile.isFacingBackwards;
+                
+                UIView *frontView = tile.isFacingBackwards ? tileCell.backContainerView : tileCell.frontContainerView;
+                UIView *backView = tile.isFacingBackwards ? tileCell.frontContainerView : tileCell.backContainerView;
+                
+                [DZTileTransformationHelper animateRotationWithFront:frontView back:backView completion:^(BOOL finished) {
+                    if (finished) {
+                        tile.isFacingBackwards = oppositeFacing;
+                    }
+                }];
+            }
+        }
     }
 }
 #pragma mark - Helpers

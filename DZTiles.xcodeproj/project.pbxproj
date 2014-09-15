@@ -32,6 +32,7 @@
 		8484DE7D19C5F890006F7137 /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DE7619C5F890006F7137 /* DraggableCollectionViewFlowLayout.m */; };
 		8484DE7E19C5F890006F7137 /* UICollectionView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DE7819C5F890006F7137 /* UICollectionView+Draggable.m */; };
 		8484DE8119C5F89E006F7137 /* DSQuiltLayoutDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DE8019C5F89E006F7137 /* DSQuiltLayoutDraggable.m */; };
+		925EB9AA19C6D594000B6D3A /* DZTileTransformationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 925EB9A919C6D594000B6D3A /* DZTileTransformationHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		8484DE7A19C5F890006F7137 /* UICollectionViewLayout_Warpable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLayout_Warpable.h; sourceTree = "<group>"; };
 		8484DE7F19C5F89E006F7137 /* DSQuiltLayoutDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSQuiltLayoutDraggable.h; sourceTree = "<group>"; };
 		8484DE8019C5F89E006F7137 /* DSQuiltLayoutDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSQuiltLayoutDraggable.m; sourceTree = "<group>"; };
+		925EB9A819C6D594000B6D3A /* DZTileTransformationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZTileTransformationHelper.h; path = DZTiles/Core/DZTileTransformationHelper.h; sourceTree = "<group>"; };
+		925EB9A919C6D594000B6D3A /* DZTileTransformationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZTileTransformationHelper.m; path = DZTiles/Core/DZTileTransformationHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				8421555319C5A0D200231A02 /* DZTile.m */,
 				8421555819C5A2C500231A02 /* DZTileCollectionViewCell.h */,
 				8421555919C5A2C500231A02 /* DZTileCollectionViewCell.m */,
+				925EB9A819C6D594000B6D3A /* DZTileTransformationHelper.h */,
+				925EB9A919C6D594000B6D3A /* DZTileTransformationHelper.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925EB9AA19C6D594000B6D3A /* DZTileTransformationHelper.m in Sources */,
 				8484DE8119C5F89E006F7137 /* DSQuiltLayoutDraggable.m in Sources */,
 				8421554D19C59D8E00231A02 /* DZTilesViewController.m in Sources */,
 				8421552D19C59C5500231A02 /* ViewController.m in Sources */,
