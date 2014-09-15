@@ -16,11 +16,12 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DZTiles"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "iOS control inspired by Windows Phone Live Tiles. Uses UICollectionView and RFQuiltLayout."
 
   s.description  = <<-DESC
-                   
+                   iOS control inspired by Windows Phone Live Tiles. Uses UICollectionView and RFQuiltLayout.
+				   Visit https://github.com/DZamataev/DZTiles for README
                    DESC
 
   s.homepage     = "https://github.com/DZamataev/DZTiles"
@@ -72,7 +73,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/DZamataev/DZTiles.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/DZamataev/DZTiles.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
