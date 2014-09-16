@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DZTiles_Constants.h"
 
 @class DZTile;
 

@@ -8,8 +8,11 @@
 
 #import "DZTileTransformationHelper.h"
 
-@implementation DZTileTransformationHelper
-+ (void)animateRotationWithFront:(UIView*)frontView back:(UIView*)backView completion:(void (^)(BOOL finished))completionBlock {
+@implementation DZTileTransformationHelper+ (void)animateTransformationWithFront:(UIView*)frontView
+                                                                            back:(UIView*)backView
+                                                              transformationType:(DZTileTransformationType)transformationType
+                                                                      completion:(void (^)(BOOL finished))completionBlock
+{
     frontView.hidden = NO;
     backView.hidden = YES;
     

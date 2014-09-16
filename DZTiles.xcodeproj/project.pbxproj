@@ -69,6 +69,7 @@
 		8484DE7A19C5F890006F7137 /* UICollectionViewLayout_Warpable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLayout_Warpable.h; sourceTree = "<group>"; };
 		8484DE7F19C5F89E006F7137 /* DSQuiltLayoutDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSQuiltLayoutDraggable.h; sourceTree = "<group>"; };
 		8484DE8019C5F89E006F7137 /* DSQuiltLayoutDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSQuiltLayoutDraggable.m; sourceTree = "<group>"; };
+		92310A7E19C84D2E00146D1A /* DZTiles_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTiles_Constants.h; sourceTree = "<group>"; };
 		925EB9BA19C7152F000B6D3A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		925EB9BB19C7152F000B6D3A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		925EB9BD19C7152F000B6D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -244,6 +245,7 @@
 				925EB9D519C71570000B6D3A /* DZTileCollectionViewCell.m */,
 				925EB9DB19C71570000B6D3A /* DZTileTransformationHelper.h */,
 				925EB9DC19C71570000B6D3A /* DZTileTransformationHelper.m */,
+				92310A7E19C84D2E00146D1A /* DZTiles_Constants.h */,
 			);
 			path = DZTiles;
 			sourceTree = "<group>";

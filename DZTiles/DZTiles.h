@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 dzamataev. All rights reserved.
 //
 
+#import "DZTiles_Constants.h"
 #import "DZTilesViewController.h"
 #import "DZTilesSection.h"
 #import "DZTile.h"

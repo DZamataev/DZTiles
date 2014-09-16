@@ -119,9 +119,7 @@
                     tileCell.frontImageView.image = tile.image;
                     tileCell.backImageView.image = [UIImage imageNamed:@"price-mark"];
                     tileCell.backContainerView.backgroundColor = [UIColor whiteColor];
-                    if (!tile.rotationTimer) {
-                        [self.tilesVC scheduleRotationForTile:tile afterSeconds:arc4random() % 13 + 5];
-                    }
+                    
                     if (!tile.isFacingBackwards) {
                         tileCell.frontContainerView.hidden = NO;
                         tileCell.backContainerView.hidden = YES;
@@ -130,14 +128,20 @@
                         tileCell.frontContainerView.hidden = YES;
                         tileCell.backContainerView.hidden = NO;
                     }
+                    
+                    if (!tile.rotationTimer) {
+                        [tile scheduleAnimatedTransformation:DZTileTransformationTypeRotation afterSeconds:((float)arc4random()/0xFFFFFFFFu * 10) + 5];
+                    }
                 }
             }];
             
-            [itemTile setOnRotation:^(DZTile *tile, bool isDisplayed, UICollectionViewCell *cell, NSNumber **shouldPerformRotationAnimation) {
-                if (!isDisplayed) {
-                    *shouldPerformRotationAnimation = @(NO);
-                }
-                [self.tilesVC scheduleRotationForTile:tile afterSeconds:arc4random() % 10 + 5];
+            [itemTile setOnTransformation:^(DZTile *tile,
+                                            bool isDisplayed,
+                                            UICollectionViewCell *cell,
+                                            DZTileTransformationType transformationType,
+                                            NSNumber *__autoreleasing *shouldPerformTransformation) {
+                
+                [tile scheduleAnimatedTransformation:DZTileTransformationTypeRotation afterSeconds:((float)arc4random()/0xFFFFFFFFu * 10) + 5];
             }];
             
             [section.tiles addObject:itemTile];

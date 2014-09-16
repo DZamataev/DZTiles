@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DZTiles_Constants.h"
 
 
 @interface DZTileCollectionViewCell : UICollectionViewCell

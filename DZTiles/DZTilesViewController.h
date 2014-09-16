@@ -10,6 +10,7 @@
 #import "RFQuiltLayout.h"
 #import "LSCollectionViewHelper.h"
 #import "UICollectionView+Draggable.h"
+#import "DZTiles_Constants.h"
 
 @class DZTilesSection;
 @class DZTile;
@@ -20,5 +21,4 @@
 @property (nonatomic, strong) NSMutableArray *sections; // array of DZTilesSection objects
 @property (nonatomic, assign) IBOutlet RFQuiltLayout *layout;
 - (void)insertTilesSections:(NSMutableArray*)newSections animated:(BOOL)animated;
-- (void)scheduleRotationForTile:(DZTile*)tileToRotate afterSeconds:(CGFloat)time;
 @end

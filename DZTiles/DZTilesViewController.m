@@ -62,53 +62,7 @@
 
 #pragma mark - Actions
 
-- (void)scheduleRotationForTile:(DZTile*)tileToRotate afterSeconds:(CGFloat)time {
-    assert(tileToRotate);
-    tileToRotate.rotationTimer = [NSTimer scheduledTimerWithTimeInterval:time
-                                                                  target:self
-                                                                selector:@selector(fireRotationInTile:)
-                                                                userInfo:tileToRotate
-                                                                 repeats:NO];
-}
 
-- (void)fireRotationInTile:(NSTimer*)timer {
-    if ([timer.userInfo isKindOfClass:[DZTile class]]) {
-        DZTile *tile = timer.userInfo;
-        
-        [tile.rotationTimer invalidate];
-        tile.rotationTimer = nil;
-        
-        BOOL isDisplayed = NO;
-        UICollectionViewCell *cell = nil;
-        NSInteger tileIndex = [self.displayedTiles indexOfObject:tile];
-        if (tileIndex != NSNotFound) {
-            isDisplayed = YES;
-            cell = [self.displayedCells objectAtIndex:tileIndex];
-        }
-        
-        NSNumber *shouldPerformRotationAnimation = @(YES);
-        if (tile.onRotation) {
-            tile.onRotation(tile, isDisplayed, cell, &shouldPerformRotationAnimation);
-        }
-        
-        if (shouldPerformRotationAnimation.boolValue == YES) {
-            if ([cell isKindOfClass:[DZTileCollectionViewCell class]]) {
-                DZTileCollectionViewCell *tileCell = (DZTileCollectionViewCell*)cell;
-                
-                BOOL oppositeFacing = !tile.isFacingBackwards;
-                
-                UIView *frontView = tile.isFacingBackwards ? tileCell.backContainerView : tileCell.frontContainerView;
-                UIView *backView = tile.isFacingBackwards ? tileCell.frontContainerView : tileCell.backContainerView;
-                
-                [DZTileTransformationHelper animateRotationWithFront:frontView back:backView completion:^(BOOL finished) {
-                    if (finished) {
-                        tile.isFacingBackwards = oppositeFacing;
-                    }
-                }];
-            }
-        }
-    }
-}
 #pragma mark - Helpers
 
 - (DZTilesSection*)sectionAtIndex:(NSInteger)sectionIndex {
@@ -140,6 +94,8 @@
     
     [self.displayedCells addObject:cell];
     [self.displayedTiles addObject:tile];
+    
+    tile.displayedCell = cell;
     
     tile.onViewUpdate(tile, cell);
     
@@ -189,7 +145,11 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    DZTile *tile = [self tileAtIndexPath:indexPath];
+    UICollectionViewCell *cell = tile.displayedCell;
+    if (tile.onDidSelect) {
+        tile.onDidSelect(tile, cell);
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -197,8 +157,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    DZTile *tile = [self tileAtIndexPath:indexPath];
     [self.displayedCells removeObject:cell];
-    [self.displayedTiles removeObject:[self tileAtIndexPath:indexPath]];
+    [self.displayedTiles removeObject:tile];
+    tile.displayedCell = nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
@@ -241,7 +203,7 @@
 //    
 //}
 
-#pragma mark -
+#pragma mark - LSCollectionViewHelper
 - (BOOL)collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;

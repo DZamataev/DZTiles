@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DZTiles_Constants.h"
 
 @interface DZTileTransformationHelper : NSObject
 
-+ (void)animateRotationWithFront:(UIView*)frontView back:(UIView*)backView completion:(void (^)(BOOL finished))completionBlock;
++ (void)animateTransformationWithFront:(UIView*)frontView
+                                  back:(UIView*)backView
+                    transformationType:(DZTileTransformationType)transformationType
+                            completion:(void (^)(BOOL finished))completionBlock;
 
 @end
