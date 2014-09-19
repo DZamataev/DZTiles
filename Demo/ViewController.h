@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DZTiles.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <DZTilesViewControllerMoveDelegate>
 @property (nonatomic, readonly) DZTilesViewController* tilesVC;
 @end

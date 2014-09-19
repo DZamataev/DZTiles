@@ -12,7 +12,9 @@
 #import "DZTileTransformationHelper.h"
 #import "DZTileCollectionViewCell.h"
 
-@interface DZTilesViewController ()
+@interface DZTilesViewController () {
+    BOOL _isMoveTilesEnabled;
+}
 @property NSMutableArray *displayedTiles;
 @property NSMutableArray *displayedCells;
 @end
@@ -32,7 +34,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.collectionView.draggable = YES;
+    self.collectionView.draggable = self.isMoveTilesEnabled;
     self.displayedCells = [NSMutableArray new];
     self.displayedTiles = [NSMutableArray new];
 //    [self performSelector:@selector(log) withObject:nil afterDelay:1.0];
@@ -47,6 +49,17 @@
 - (void)log {
     NSLog(@"displayed cells: %ui", self.displayedCells.count);
     [self performSelector:@selector(log) withObject:nil afterDelay:1.0f];
+}
+
+#pragma marl - Properties
+
+- (void)setIsMoveTilesEnabled:(BOOL)isMoveTilesEnabled {
+    _isMoveTilesEnabled = isMoveTilesEnabled;
+    self.collectionView.draggable = _isMoveTilesEnabled;
+}
+
+- (BOOL)isMoveTilesEnabled {
+    return _isMoveTilesEnabled;
 }
 
 /*
@@ -206,7 +219,11 @@
 #pragma mark - LSCollectionViewHelper
 - (BOOL)collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    BOOL result = YES;
+    if (self.moveDelegate && [self.moveDelegate respondsToSelector:@selector(tilesViewController:collectionView:canMoveItemAtIndexPath:)]) {
+        result = [self.moveDelegate tilesViewController:self collectionView:collectionView canMoveItemAtIndexPath:indexPath];
+    }
+    return result;
 }
 
 - (void)collectionView:(LSCollectionViewHelper *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -216,6 +233,9 @@
     [fromSection.tiles removeObjectAtIndex:fromIndexPath.row];
     DZTilesSection *toSection = self.sections[toIndexPath.section];
     [toSection.tiles insertObject:tile atIndex:toIndexPath.row];
+    if (self.moveDelegate && [self.moveDelegate respondsToSelector:@selector(tilesViewController:collectionView:didMoveItemAtIndexPath:toIndexPath:)]) {
+        [self.moveDelegate tilesViewController:self collectionView:collectionView didMoveItemAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
+    }
 }
 
 

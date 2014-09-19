@@ -72,6 +72,9 @@
     }
   ];
     
+    self.tilesVC.isMoveTilesEnabled = YES;
+    self.tilesVC.moveDelegate = self;
+    
     // only one section is possible with existing implementation, but we will leave it for the future updates coming
     NSMutableArray *sections = [NSMutableArray new];
     DZTilesSection *section = [DZTilesSection new];
@@ -156,6 +159,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - DZTilesViewControllerMoveDelegate
+
+- (BOOL)tilesViewController:(DZTilesViewController *)tilesVC collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tilesViewController:(DZTilesViewController *)tilesVC collectionView:(LSCollectionViewHelper *)collectionView didMoveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    NSLog(@"Ya move dat sackr");
+}
+
+#pragma mark - Helpers
 
 // Assumes input like "#00FF00" (#RRGGBB).
 + (UIColor *)colorFromHexString:(NSString *)hexString {
