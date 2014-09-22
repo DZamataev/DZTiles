@@ -79,24 +79,45 @@
 #pragma mark - Helpers
 
 - (DZTilesSection*)sectionAtIndex:(NSInteger)sectionIndex {
-    return (DZTilesSection*)self.sections[sectionIndex];
+    DZTilesSection *section = nil;
+    if (self.sections.count > sectionIndex) {
+        section = self.sections[sectionIndex];
+    }
+    return section;
 }
 
 - (DZTile*)tileAtIndexPath:(NSIndexPath*)indexPath {
     DZTilesSection *section = [self sectionAtIndex:indexPath.section];
-    DZTile *tile = section.tiles[indexPath.row];
+    DZTile *tile = nil;
+    if (section && section.tiles.count > indexPath.row) {
+        tile = section.tiles[indexPath.row];
+    }
     return tile;
 }
 
 - (void)insertTilesSections:(NSMutableArray *)newSections animated:(BOOL)animated {
+    [self.displayedCells removeAllObjects];
+    [self.displayedTiles removeAllObjects];
     self.sections = newSections;
     [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    NSInteger result = 0;
+    if (self.sections) {
+        result = self.sections.count;
+    }
+    return result;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self sectionAtIndex:section].tiles.count;
+    NSInteger result = 0;
+    if (self.sections.count > section) {
+        result = [self sectionAtIndex:section].tiles.count;
+    }
+    return result;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -115,9 +136,6 @@
     return cell;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.sections.count;
-}
 
 //// The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
 //- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
