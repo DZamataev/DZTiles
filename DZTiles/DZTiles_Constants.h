@@ -10,5 +10,6 @@
 
 typedef enum {
     DZTileTransformationTypeRotation,
-    DZTileTransformationTypeFall
+    DZTileTransformationTypeFall,
+    DZTileTransformationTypeInstant
 } DZTileTransformationType;

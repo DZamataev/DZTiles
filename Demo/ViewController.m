@@ -133,7 +133,9 @@
                     }
                     
                     if (!tile.rotationTimer) {
-                        [tile scheduleAnimatedTransformation:DZTileTransformationTypeRotation afterSeconds:((float)arc4random()/0xFFFFFFFFu * 10) + 5];
+                        DZTileTransformationType randomType = rand() % DZTileTransformationTypeInstant; //animated, not instant
+                        Float32 randomTime = ((float)arc4random()/0xFFFFFFFFu * 10) + 5;
+                        [tile scheduleAnimatedTransformation:randomType afterSeconds:randomTime];
                     }
                 }
             }];
@@ -144,7 +146,9 @@
                                             DZTileTransformationType transformationType,
                                             NSNumber *__autoreleasing *shouldPerformTransformation) {
                 
-                [tile scheduleAnimatedTransformation:DZTileTransformationTypeRotation afterSeconds:((float)arc4random()/0xFFFFFFFFu * 10) + 5];
+                DZTileTransformationType randomType = rand() % DZTileTransformationTypeInstant; //animated, not instant
+                Float32 randomTime = ((float)arc4random()/0xFFFFFFFFu * 10) + 5;
+                [tile scheduleAnimatedTransformation:randomType afterSeconds:randomTime];
             }];
             
             [section.tiles addObject:itemTile];

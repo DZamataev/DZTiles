@@ -8,10 +8,41 @@
 
 #import "DZTileTransformationHelper.h"
 
-@implementation DZTileTransformationHelper+ (void)animateTransformationWithFront:(UIView*)frontView
-                                                                            back:(UIView*)backView
-                                                              transformationType:(DZTileTransformationType)transformationType
-                                                                      completion:(void (^)(BOOL finished))completionBlock
+@implementation DZTileTransformationHelper
+
++ (void)animateTransformationWithFront:(UIView*)frontView
+                                  back:(UIView*)backView
+                    transformationType:(DZTileTransformationType)transformationType
+                            completion:(void (^)(BOOL finished))completionBlock
+{
+    switch (transformationType) {
+        case DZTileTransformationTypeRotation:
+        {
+            [DZTileTransformationHelper animateRotationWithFront:frontView back:backView completion:completionBlock];
+        }
+        break;
+        
+        
+        case DZTileTransformationTypeFall:
+        {
+            [DZTileTransformationHelper animateFallWithFront:frontView back:backView completion:completionBlock];
+        }
+        break;
+        
+        case DZTileTransformationTypeInstant:
+        {
+            [DZTileTransformationHelper animateInstantWithFront:frontView back:backView completion:completionBlock];
+        }
+        break;
+        
+        default:
+        break;
+    }
+}
+
++ (void)animateRotationWithFront:(UIView*)frontView
+                            back:(UIView*)backView
+                      completion:(void (^)(BOOL finished))completionBlock
 {
     frontView.hidden = NO;
     backView.hidden = YES;
@@ -66,7 +97,56 @@
             }];
         }];
     }];
-    
+}
 
++ (void)animateFallWithFront:(UIView*)frontView
+                        back:(UIView*)backView
+                  completion:(void (^)(BOOL finished))completionBlock
+{
+    frontView.hidden = NO;
+    backView.hidden = NO;
+    
+    frontView.layer.anchorPoint = CGPointMake(0.5, -0.5);
+    backView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+    
+    [CATransaction begin];
+    
+    
+    [CATransaction setAnimationDuration:1.0];
+    [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [CATransaction setCompletionBlock:^{
+        frontView.hidden = YES;
+        backView.hidden = NO;
+        frontView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+        backView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+        completionBlock(YES);
+    }];
+    
+    // Animate the anchor point
+    CABasicAnimation *fronAnimation = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
+    fronAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.5f, 0.5f)];
+    fronAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.5, -0.5)];
+    [frontView.layer addAnimation:fronAnimation forKey:@"anchorPoint"];
+    // end
+    
+    // Animate the anchor point
+    CABasicAnimation *backAnimation = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
+    backAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.5f, 1.5f)];
+    backAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.5, 0.5)];
+    [backView.layer addAnimation:backAnimation forKey:@"anchorPoint"];
+    // end
+    [CATransaction commit];
+}
+
++ (void)animateInstantWithFront:(UIView*)frontView
+                           back:(UIView*)backView
+                     completion:(void (^)(BOOL finished))completionBlock
+{
+    frontView.hidden = YES;
+    frontView.layer.transform = CATransform3DIdentity;
+    backView.hidden = NO;
+    backView.layer.transform = CATransform3DIdentity;
+    completionBlock(YES);
 }
 @end
